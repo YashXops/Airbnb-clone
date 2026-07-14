@@ -1,0 +1,196 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+* {
+    margin : 0;
+    padding: 0;;
+}
+
+.container1 {
+    flex:1;
+}
+
+.navbar {
+    height: 5rem;
+    font-size: 20px;
+    gap: 10px;
+    background-color: white;
+}
+
+.fa-compass {
+    color: red;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;   
+}
+
+/*footer */
+footer {
+    background-color: aliceblue;
+    height: 5rem;
+    position: relative;
+    bottom: 0;
+}
+
+.f-socials {
+    gap : 15px;
+}
+
+.TandC {
+    gap : 15px;
+}
+
+/* Index styling */
+.card {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    position: relative;
+}
+
+.card-body {
+    flex-direction: column;
+
+}
+
+.card-img-top {
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.listing-desc-wrapper {
+    height: 3rem;     /* fixed height lives HERE */
+    overflow: hidden;
+}
+
+.listing-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;     /* clamp lives HERE, no height set */
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 0;
+}
+
+.listing-price {
+    font-weight: 500;
+    margin-top: auto; /* push price to bottom of card */
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* new page */
+.add-btn {
+    background-color: red;
+    border: none;
+}
+
+/* Show page */
+.show-card-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-listing-location {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.show-listing-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.show-listing-desc {
+    font-size: 1rem;
+}
+
+.show-del-btn {
+    background-color: red;
+    color: white;
+    border-radius: 15%;
+    padding: 0.5rem;
+    border: none;
+}
+
+.show-edit-btn {
+    padding: 8px 20px;
+}
+
+/* Review Form */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.3rem;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #ccc;     /* default grey star */
+    cursor: pointer;
+}
+
+/* light up stars on hover */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: gold;
+}
+
+/* light up stars based on what's selected */
+.star-rating input:checked ~ label {
+    color: gold;
+}
+
+.show-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    width: 300px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.review-username {
+    margin: 0;
+}
+
+.review-rating {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.star-filled {
+    color: gold;
+}
+
+.star-empty {
+    color: #ddd;
+}
+
+.review-comment {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+}

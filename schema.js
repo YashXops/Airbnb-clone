@@ -1,0 +1,22 @@
+const Joi = require("Joi");
+
+const ListingSchema = Joi.object({
+    listing: Joi.object({
+        title: Joi.string().required(),
+        image: Joi.object({
+                url: Joi.string().uri().allow("",null),
+            }).required(),
+        description: Joi.string().required(),
+        country: Joi.string().required(),
+        location: Joi.string().required(),
+    }).required(),
+});
+
+const ReviewSchema = Joi.object({
+    review: Joi.object({
+        rating: Joi.number().required().min(1).max(5),
+        comment: Joi.string().required(),
+    }).required(),
+});
+
+module.exports = { ListingSchema,ReviewSchema }
