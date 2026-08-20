@@ -23,18 +23,21 @@
                 </div>
             </div>
         </div>
-        <div class="buttons offset-4 mt-3 d-flex mb-3">
-            <div>
-                <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
-                    <button class="show-del-btn">Delete</button>
-                </form>
+        <% if(listing.owner.equals(curUser._id)) {%>
+            <div class="buttons offset-4 mt-3 d-flex mb-3">
+                <div>
+                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+                        <button class="show-del-btn">Delete</button>
+                    </form>
+                </div>
+                <div class="edit-btn offset-3">
+                    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark show-edit-btn">
+                        Edit
+                    </a>
+                </div>
             </div>
-            <div class="edit-btn offset-3">
-                <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark show-edit-btn">
-                    Edit
-                </a>
-            </div>
-        </div>
+        <% } %>
+        
         <hr />
         <div class="col-4 offset-4 mb-3">
             <h4>Leave a Review</h4>

@@ -1,4 +1,4 @@
-const Joi = require("Joi");
+const Joi = require("joi");
 
 const ListingSchema = Joi.object({
     listing: Joi.object({
@@ -8,6 +8,7 @@ const ListingSchema = Joi.object({
             }).required(),
         description: Joi.string().required(),
         country: Joi.string().required(),
+        price: Joi.number().required(),
         location: Joi.string().required(),
     }).required(),
 });
@@ -19,4 +20,4 @@ const ReviewSchema = Joi.object({
     }).required(),
 });
 
-module.exports = { ListingSchema,ReviewSchema }
+module.exports = { ListingSchema,ReviewSchema };
