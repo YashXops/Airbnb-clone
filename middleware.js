@@ -1,4 +1,34 @@
 const Listing = require("./models/listing");
+const { ListingSchema } = require("./schema");
+const ExpressError = require("./utils/ExpressError");
+
+module.exports.validateListing = (req, res, next) => {
+    
+    let { error } = ListingSchema.validate(req.body);
+
+    if (error) {
+        let errMsg = error.details.map(el => el.message).join(", ");
+        throw new ExpressError(400, errMsg);
+    }
+
+    if (!req.file) {
+        throw new ExpressError(400, "Image is required");
+    }
+
+    next();
+};
+
+module.exports.validateListingUpdate = (req, res, next) => {
+    console.log(req.body);
+    let { error } = ListingSchema.validate(req.body);
+
+    if (error) {
+        let errMsg = error.details.map(el => el.message).join(", ");
+        throw new ExpressError(400, errMsg);
+    }
+
+    next();
+};
 
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
@@ -54,3 +84,4 @@ module.exports.reviewOwner = async (req,res,next) => {
     }
     next();
 }
+

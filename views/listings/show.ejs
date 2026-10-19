@@ -1,3 +1,9 @@
+<script>
+    let mapToken = "<%= process.env.MAP_API_TOKEN %>" ;
+    let coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
+    console.log(coordinates);
+</script>
+
 <% layout("/layouts/boilerplate") %>
     <div class="row mt-3">
         <h3 class="offset-4 mb-3">
@@ -101,4 +107,6 @@
                 </div>
             <% } %>
         </div>
+
+        <div class="offset-4 col-4 row gap-3 mb-3" id="map"></div>
     </div>

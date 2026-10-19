@@ -3,7 +3,7 @@
     <div class="col-8 offset-2">
       <h3 class="mb-3">Editing your List</h3>
       
-      <form method="post" action="/listings/<%= listing._id %>?_method=PUT">
+      <form method="post" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data">
 
         <div class="mb-3">
           <label for="Title" class="form-label">Title</label>
@@ -16,8 +16,8 @@
         </div>
         
         <div class="mb-3">
-          <label for="Image" class="form-label">Image</label>
-          <input name="listing[image][url]" value="<%= listing.image.url %>" type="text" class="form-control" />
+          <label for="Image" class="form-label">Upload Image</label>
+          <input name="listing[image]" type="file" class="form-control" />
         </div>
         
         <div class="row">

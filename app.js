@@ -1,14 +1,14 @@
+if(process.env.NODE_ENV != "production") {
+    require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Listing = require("./models/listing.js");
-const Review = require("./models/reviews.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const WrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const {ListingSchema,ReviewSchema} = require("./schema.js");
 const session = require('express-session');
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
@@ -69,10 +69,6 @@ app.use(express.static(path.join(__dirname,"/public")));
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
 app.use("/", userRouter);
-
-app.get('/',(req,res) => {
-    res.send("hi, i am here");
-});
 
 app.all("/*splat", (req, res, next) => {
     next(new ExpressError(404, "Page not found!"));
